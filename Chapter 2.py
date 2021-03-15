@@ -6,12 +6,12 @@ print(p_name.upper())
 print(p_name.lower())
 print(p_name.title())
 
-print('a famous person once said "that aint my bitch"')
+print('a famous person once said "that aint me"')
 
 famous_person = "lord raiden"
-print(famous_person + ' once said, "That aint my bitch"')
+print(famous_person + ' once said, "That aint me"')
 
-message = ' once said, "That aint my bitch"'
+message = ' once said, "That aint me"'
 print(famous_person.title() + message)
 
 print("Python")
