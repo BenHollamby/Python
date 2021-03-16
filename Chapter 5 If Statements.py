@@ -97,4 +97,17 @@ elif age >= 20 and age < 65:
 elif age >= 65:
     print("\nPerson is an elder")
 
-#continue tomorrow, we are on page 140
+
+favourite_fruits = ["banana", "apple", "onion"]
+
+for fruit in favourite_fruits:
+    if fruit == "apple":
+        print(f"you must like {fruit.title()}'s")
+
+if 'banana' == favourite_fruits[1]:
+    print(True)
+
+if 'banana' == favourite_fruits[0]:
+    print(True)
+
+#continue on page 144
