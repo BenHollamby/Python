@@ -110,4 +110,57 @@ if 'banana' == favourite_fruits[1]:
 if 'banana' == favourite_fruits[0]:
     print(True)
 
-#continue on page 144
+
+usernames = ["admin", "angela", "alice", "kelly", "elisha", "natalie"]
+
+for user in usernames:
+    if user == 'admin':
+        print(f"\nHello {user.title()}, would you like to see a status report?")
+    else:
+        print(f"Hello {user.title()} thanks for logging in again.")
+
+
+#When the name of a list is used in an if statement, Python returns True if the
+# list contains at least one item; an empty list evaluates to False.
+no_users = []
+if no_users:
+    for no_user in no_users:
+        print("Hello")
+else:
+    print("we need some users!")
+
+#loop through new_users and if the name has already been used, reject because the name has been taken
+current_users = ["admin", "angela", "alice", "kelly", "elisha", "natalie"]
+new_users = ["angela", "alice", "kelly", "ben"]
+
+for new_user in new_users:
+    if new_user in current_users:
+        print(f"\nSorry {new_user.title()} you will need a new username")
+    else:
+        print(f"\nFeel free to join {new_user.title()}")
+
+#make sure list is case sensitive if Kelly has been used, KELLY should not be accepted
+#using a list comprehension for current users turning all users into lower case
+current_users = ["admin", "angela", "alice", "Kelly", "elisha", "natalie"]
+new_users = ["angela", "alice", "KELLY", "ben"]
+
+lower_users = [user.lower() for user in current_users]
+
+for new_user in new_users:
+    if new_user.lower() in lower_users:
+        print(f"\nSorry no dice {new_user.title()} ")
+    else:
+        print(f"\nWelcome to the fold {new_user.title()}")
+
+#ordinal numbers indicate position in a list, most end in th, except for 1st 2nd and 3rd
+numbers = list(range(1,10))
+for number in numbers:
+    if number == 1:
+        print(f"\n{number}st!")
+    elif number == 2:
+        print(f"{number}nd.")
+    elif number == 3:
+        print(f"{number}rd.")
+    else:
+        print(f"{number}th")
+
