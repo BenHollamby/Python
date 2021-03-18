@@ -105,7 +105,10 @@ rivers = {
 for key, value in rivers.items():
     print(f"\nThe {key.title()} river runs through the country {value.title()}.")
 
-
+#make a list of people who should take a poll in fav language
+#create another list of some who should
+#loop through new list and if they have taken the poll print sorry
+#if they havent taken the poll, ask them what their fav language is
 third_fav_languages = {
     'alice': 'python',
     'sarah': 'c++',
@@ -113,8 +116,169 @@ third_fav_languages = {
     'will': 'powershell'
 }
 
-poll = ['alice', 'ben', 'rob', 'lemmy']
-for third in third_fav_languages.keys():
-    print(third)
+print("\n")
 
-#page 164
+polls = ['alice', 'ben', 'rob', 'lemmy']
+for poll in polls:
+    if poll in third_fav_languages.keys():
+        print(f"Sorry {poll.title()} you have already participated in the poll for a favourite language")
+    else:
+        print(f"What language do you prefer {poll.title()}?")
+print("\n")
+
+#create a list of dictionaries
+alien_0 = {'colour': 'green', 'points': 5}
+alien_1 = {'colour': 'red', 'points': 15}
+alien_2 = {'colour': 'yellow', 'points': 10}
+
+aliens = [alien_0, alien_1, alien_2]
+for alien in aliens:
+    print(alien)
+
+#in this example we are going to create 30 aliens, show the first 5 and print the total number of aliens created
+aliens = []
+
+for alien_number in range(30):
+    new_alien = {'colour': 'green', 'points': 5, 'speed': 'slow'}
+    aliens.append(new_alien)
+
+for alien in aliens[:5]:
+    print(alien)
+
+print(f"Total number of alients: {len(aliens)}")
+
+print("\n")
+
+#now imagine we want to change some characteristics of 3 aliens
+#then printing first 5
+
+for alien in aliens[:3]:
+    if alien['colour'] == 'green':
+        alien['colour'] = 'yellow'
+        alien['points'] = 10
+        alien['speed'] = 'medium'
+
+for alien in aliens[:5]:
+    print(alien)
+
+print("\n")
+
+#we could extend this further by turning green to yellow and yellow to red
+
+for alien in aliens[:6]:
+    if alien['colour'] == 'green':
+        alien['colour'] = 'yellow'
+        alien['points'] = 10
+        alien['speed'] = 'medium'
+    elif alien['colour'] == 'yellow':
+        alien['colour'] = 'red'
+        alien['points'] = 15
+        alien['speed'] = 'fast'
+
+for alien in aliens[:10]:
+    print(alien)
+
+
+#create a list in a dictionary
+#print order
+pizza = {
+    'crust': 'thick',
+    'toppings': ['mushrooms', 'extra cheese'],
+}
+
+print(f"\nYou ordered a {pizza['crust']}-crust pizza with the following toppings:")
+
+for topping in pizza['toppings']:
+    print("\t" + topping)
+
+#another fun example
+fav_languages_third = {
+    'alice': ['python', 'go'],
+    'sarah': ['powershell', 'python'],
+    'ben': ['python', 'powershell', 'terraform'],
+    'will': ['powershell', 'ruby']
+}
+for name, languages in fav_languages_third.items():
+    print(f"\n{name.title()}'s favourite languages are:")
+    for language in languages:
+        print(f"\t{language.title()}")
+
+#dictionary in a dictionary
+users = {
+    'aeinstein': {
+        'first': 'albert',
+        'last': 'einstein',
+        'location': 'princeton',
+    },
+
+    'mcurie': {
+        'first': 'marie',
+        'last': 'curie',
+        'location': 'paris',
+    },
+}
+for username, user_info in users.items():
+    print(f"\nUsername: {username}")
+    full_name = f"{user_info['first']} {user_info['last']}"
+    location = user_info['location']
+
+    print(f"\tFull name: {full_name.title()}")
+    print(f"\tLocation: {location.title()}")
+
+
+#make 3 dictionaries about people, store in a list, then loop through people and list everything you know about them
+
+person_1 = {
+    'first name': 'aaron',
+    'last name': 'maisey',
+    'age': 35,
+    'city': 'hamilton'
+}
+
+person_2 = {
+    'first name': 'ben',
+    'last name': 'hollamby',
+    'age': 36,
+    'city': 'sydney'
+}
+
+person_3 = {
+    'first name': 'sam',
+    'last name': 'millar',
+    'age': 26,
+    'city': 'auckland'
+}
+
+peoples = [person_1, person_2, person_3]
+for person in peoples:
+    name = person['first name'].title() + " " + person['last name'].title()
+    age = str(person['age'])
+    city = person['city'].title()
+
+    print(name + ", of " + city + ", is " + age + " years old")
+
+##################################################################################
+print("\n")
+
+animals_1 = {
+    'type': "cat",
+    'name': "fatshit",
+}
+animals_2 = {
+    'type': "dog",
+    'name': "jack",
+}
+animals_3 = {
+    'type': "pig",
+    'name': "piggy smalls",
+}
+
+pets = [animals_1, animals_2, animals_3]
+
+for animal in pets:
+    name = animal['name'].title()
+    of_type = animal['type'].title()
+    print(f"{name} is the coolest {of_type}")
+
+################################################################
+#continue on page 171
