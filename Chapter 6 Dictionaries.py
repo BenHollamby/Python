@@ -281,4 +281,32 @@ for animal in pets:
     print(f"{name} is the coolest {of_type}")
 
 ################################################################
-#continue on page 171
+
+print("\n")
+
+favourite_places = {
+    'ben': ['antarctica', 'russia', 'siberia'],
+    'aaron': ['australia', 'nz'],
+    'alice': ['ireland', 'south america']
+}
+
+for name, places in favourite_places.items():
+    print(f"{name.title()}'s favourite places are:")
+    for place in places:
+        print(f"\t{place.title()}")
+
+##################################################
+
+print("\n")
+
+fav_numbers = {
+    'aaron': [30, 45, 50],
+    'ben': [18, 21, 25, 28],
+    'alice': [25, 30, 33]
+}
+
+for name, numbers in fav_numbers.items():
+    print(f"{name.title()}'s favourite numbers are:")
+    for number in numbers:
+        print(f"\t{number}")
+
