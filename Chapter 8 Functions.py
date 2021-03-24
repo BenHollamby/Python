@@ -22,3 +22,19 @@ describe_pet(pet_name='willie')
 
 print()
 
+#write a function that accepts a size and some text for a message on a t-shirt then print a summary
+def make_shirt(size, text):
+    print(f"You have brought a {size} size shirt with the message '{text}' printed on it")
+
+make_shirt('large', 'season in america be like')
+
+#modify the shirt function so that shirts are large by default with a msg that reads i love python
+def make_shirt(text, size='large'):
+    print(f"You have brought a {size} shirt that reads {text.title()}")
+
+make_shirt('i love python', 'small')
+make_shirt('i love python')
+
+print()
+
+#continue on page 200
