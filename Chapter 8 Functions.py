@@ -29,11 +29,11 @@ def make_shirt(size, text):
 make_shirt('large', 'season in america be like')
 
 #modify the shirt function so that shirts are large by default with a msg that reads i love python
-def make_shirt(text, size='large'):
+def make_shirts(text, size='large'):
     print(f"You have brought a {size} shirt that reads {text.title()}")
 
-make_shirt('i love python', 'small')
-make_shirt('i love python')
+make_shirts('i love python', 'small')
+make_shirts('i love python')
 
 print()
 
@@ -56,7 +56,7 @@ musician = get_formatted_name('jimi', 'hendrix')
 print(musician)
 print()
 #making an argument optional
-def get_formatted_name(first_name, last_name, middle_name=''):
+def get_formatted_names(first_name, last_name, middle_name=''):
     if middle_name:
         full_name = f"{first_name} {middle_name} {last_name}"
     else:
@@ -64,9 +64,9 @@ def get_formatted_name(first_name, last_name, middle_name=''):
 
     return full_name.title()
 
-musician = get_formatted_name('jimi', 'hendrix')
+musician = get_formatted_names('jimi', 'hendrix')
 print(musician)
-musician = get_formatted_name('john', 'hooker', 'lee')
+musician = get_formatted_names('john', 'hooker', 'lee')
 print(musician)
 print()
 
@@ -81,13 +81,13 @@ print(musician)
 print()
 
 #expanding on returning a dictionary | in conditional tests None equates to False
-def build_person(first_name, last_name, age=None):
+def build_persons(first_name, last_name, age=None):
     person = {'first': first_name, 'last': last_name}
     if age:
         person['age'] = age
     return person
 
-musician = build_person('jimi', 'hendrix', 27)
+musician = build_persons('jimi', 'hendrix', 27)
 print(musician)
 
 #Write a function that takes the name of a city and its country, return a string "city, country"
@@ -135,5 +135,12 @@ while True:
     yo = user_album(request_artist, request_album)
     print(yo)
     
+#make a list containing a series of short text messages, pass the list to a function
+def show_messages(messages):
+    for message in messages:
+        print(message)
+        print()
 
-    
+texts = ['ready to roll?', 'hey you up?', 'don\'t forget to study more yo']
+show_messages(texts)
+
