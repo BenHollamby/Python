@@ -193,11 +193,19 @@ sandwiches('italian herbs and cheese', 'ham', 'salami', 'cheese', 'red onion', '
 
 #create a user profile function that takes first and last name as arguments, and three other key-value pairs
 def user_profile(first, last, **info):
-    user_info = {}
-    user_info[first_name] = first
-    user_info[last_name] = last
-    print(user_info)
+    info['first_name'] = first
+    info['last_name'] = last
+    print(info)
 
 user_profile('ben', 'holl')
+user_profile('ben', 'holla', location='Hamilton', age=26, salary='large')
 
-# continue on page 215
+#write a function that stores information about a car
+def make_car(manufacturer, model, **carinfo):
+    carinfo['manufacturer'] = manufacturer
+    carinfo['model'] = model
+    return carinfo
+
+car = make_car('subaru', 'legacy', color='blue', tow_package=True)
+print(car)
+
