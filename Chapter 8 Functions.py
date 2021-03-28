@@ -143,4 +143,61 @@ def show_messages(messages):
 
 texts = ['ready to roll?', 'hey you up?', 'don\'t forget to study more yo']
 show_messages(texts)
+print()
 
+#do the same as above but after printing each message move the message to a new list, prove it by printing both lists (This one I couldn't figure out why the last item would not move, turns out it stops )
+unsent_messages = ['NIN all day', 'can\'t wait for Monday', 'study to break chains']
+sent_messages = []
+def sending_messages(texties):
+    while unsent_messages:
+        for i in texties:
+            sender = unsent_messages.pop()
+            print(sender)
+            sent_messages.append(sender)
+
+sending_messages(unsent_messages)
+print(unsent_messages)
+print(sent_messages)
+print()
+
+#do the same but have an archived version of the messages
+
+messages_to_send = ['NIN all day', 'can\'t wait for Monday', 'study to break chains']
+messages_to_archive = []
+
+def archiving_messages(text_messages):
+    messages_to_copy = [messages_to_send[:]]
+    while messages_to_copy:
+        for message in messages_to_copy:
+            sending = messages_to_copy.pop()
+            messages_to_archive.append(sending)
+
+archiving_messages(messages_to_send)
+print(messages_to_send)
+print(messages_to_archive)
+print()
+
+#write a function that accepts a list of items a person wants on a sandwich, and have one parameter that will accept as many items as the functions calls
+# print a summary of the order as well
+def sandwiches(bread, *condiments):
+    print(f"You have selected a {bread.title()} sandwich:")
+    for condi in condiments:
+        print(f"\t{condi}")
+
+
+sandwiches('white', 'cheese', 'ham', 'pickle')
+print()
+sandwiches('rye', 'ham')
+print()
+sandwiches('italian herbs and cheese', 'ham', 'salami', 'cheese', 'red onion', 'lettuce', 'honey mustard sauce')
+
+#create a user profile function that takes first and last name as arguments, and three other key-value pairs
+def user_profile(first, last, **info):
+    user_info = {}
+    user_info[first_name] = first
+    user_info[last_name] = last
+    print(user_info)
+
+user_profile('ben', 'holl')
+
+# continue on page 215
