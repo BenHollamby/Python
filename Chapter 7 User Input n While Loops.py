@@ -31,7 +31,7 @@ print(f"Total of current number is {current_number}\n")
 
 #letting the user choose when to quit
 prompt = "\nTell me something and I will repeat it back to you:"
-prompt += "\Enter 'quit' to end the program. "
+prompt += "\nEnter 'quit' to end the program. "
 message = ""
 while message != 'quit':
     message = input(prompt)
@@ -40,7 +40,7 @@ while message != 'quit':
 
 #another way of doing the above is using a True flag
 prompt = "\nTell me something and I will repeat it back to you:"
-prompt += "\Enter 'quit' to end the program. "
+prompt += "\nEnter 'quit' to end the program. "
 active = True
 while active:
     message = input(prompt)
@@ -52,7 +52,7 @@ while active:
 
 #using break to exit a loop
 prompt = "\nPlease enter the name of a city you have visited:\n"
-prompt += "\Enter 'quit' to end the program. "
+prompt += "\nEnter 'quit' to end the program. "
 while True:
     city = input(prompt)
     if city == 'quit':
