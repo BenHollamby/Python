@@ -34,4 +34,76 @@ message = "I really like dogs"
 print(message)
 print(message.replace('dogs', 'cats'))
 
-#continue on page 262
+#writing to an empty file
+filename = 'programming.txt'
+
+with open(filename, 'w') as file_object: # 'w' will overwrite anything, using 'a' will append
+    file_object.write('I love Python, fo sho ')
+    file_object.write('you know its true') #this stays on the first line cause no sep
+    file_object.write("\nCant take my eyes offa\n") #new lines
+    file_object.write("\tyou")
+
+#Guest: Write a program that prompts the user for their name. When they respond, write
+#their name to a file called guest.txt.
+filename = 'tendashthree.txt'
+persons_name = input("What is your name? ")
+with open(filename, 'w') as file_object:
+    file_object.write(f"Hello {persons_name.title()}!")
+
+
+#Guest Book: Write a while loop that prompts users for their name. When they enter
+#their name, print a greeting to the screen and add a line recording their visit in a file called
+#guest_book.txt. Make sure each entry appears on a new line in the file.
+
+filename = 'tendashfour.txt'
+
+while True:
+    name = input("Hello, what is your name?")
+    if name == '':
+        break
+    else:
+        with open(filename, 'a') as file_object:
+            file_object.write(f"Hello {name.title()}, looking well yo!\n")
+
+#10-5. Programming Poll: Write a while loop that asks people why they like programming.
+#Each time someone enters a reason, add their reason to a file that stores all the responses.
+filename = 'programming.txt'
+
+while True:
+    programming_poll = input("Why do you like programming? ")
+    if programming_poll == '':
+        break
+    else:
+        with open(filename, 'a') as file_object:
+            file_object.write(f"{programming_poll.upper()} caps for emphasis! \n")
+
+
+#handling exceptions use a try: and then grab the error with except
+try:
+    print(5/0)
+except ZeroDivisionError:
+    print("You can't divide by zero!")
+
+#using exceptions to prevent crashes
+print("give me two numbers and I'll divide them.")
+print("press enter to quit")
+
+
+#a proper example of handling the exception, the mistake I made here was putting Try at the start and except at the end
+#what i needed to do what put it round the bit that would actually fail, in this case the answer and throwing in an else block
+while True:
+    first_number = input("\nFirst number: ")
+    if first_number == '':
+        break
+    second_number = input("Second number: ")
+    if second_number == '':
+        break
+    try:    
+        answer = int(first_number) / int(second_number)
+    except ZeroDivisionError:
+        print("Can't be done my friend, can't divide by zero just ain't goan happen. Try again :) ")
+    else:
+        print(answer)
+
+#continue on page 270
+           
