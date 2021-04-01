@@ -323,4 +323,113 @@ print(num_words)
 num_words = words.count("castle")
 print(num_words)
 
-#continue on page 276
+#the JSON module allows you to dump simple python data structures into a file
+#you can load, share that file between different python programs
+import json
+
+numbers = [2, 3, 5, 7, 11, 13]
+
+filename = 'numbers.json'
+with open(filename, 'w') as f:
+    json.dump(numbers, f) #dumbs numbers list into f
+
+#now we'll load that list back into memory
+with open(filename) as f:
+    numbers = json.load(f)
+
+print(numbers)
+
+#Saving data is usefule when you're working with user generated data because if you don't store that data somehow
+#you'll lose it when the program stops running.
+#lets create a program that will prompt for a name the first time they run a program and then remember next time the program is run
+import json
+
+username = input("what is your name? ")
+
+filename = "username.json"
+with open(filename, 'w') as f:
+    json.dump(username, f)
+    print(f"We'll remember you when you come back {username.title()}!")
+
+with open(filename) as f:
+    username = json.load(f)
+    print(f"Welcome back, {username.title()}!")
+
+print()
+#We need to combine these two programs above into one file. When someone
+#runs remember_me.py, we want to retrieve their username from memory if
+#possible; therefore, we’ll start with a try block that attempts to recover theusername. If the file username.json doesn’t exist, we’ll have the except block
+#prompt for a username and store it in username.json for next time:
+import json
+
+filename = "username.json"
+try:
+    with open(filename) as f:
+        username = json.load(f)
+except FileNotFoundError:
+    username = input("What is your name? ")
+    with open(filename, 'w') as f:
+        json.dump(username, f)
+        print(f"We'll remember you when you come back {username.title()}")
+else:
+    print(f"Welcome back, {username}!")
+
+#Favorite Number: Write a program that prompts for the user’s favorite number. Use
+#json.dump() to store this number in a file. Write a separate program that reads in this value
+#and prints the message, “I know your favorite number! It’s _____.”
+import json
+filename = "favnumber.txt"
+
+fav_number = input("What is your favourite number? ")
+
+with open(filename, 'w') as f:
+    json.dump(fav_number, f)
+
+with open(filename) as f:
+    num = json.load(f)
+    print(f"I know your fav number is {num}!")
+
+#Favorite Number Remembered: Combine the two programs from Exercise 10-11
+#into one file. If the number is already stored, report the favorite number to the user. If not,
+#prompt for the user’s favorite number and store it in a file. Run the program twice to see that it
+#works.
+import json
+
+filename = "tendashtwo.json"
+
+try:
+    with open(filename) as f:
+        favs = json.load(f)
+except FileNotFoundError:
+    num_be = input("What is your fav number? ")
+    with open(filename, 'w') as f:
+        json.dump(num_be, f)
+else:
+    print(f"Your fav numb exists and it is {favs}!")
+
+#Verify User: The final listing for remember_me.py assumes either that the user has
+#already entered their username or that the program is running for the first time. We should
+#modify it in case the current user is not the person who last used the program.
+#Before printing a welcome back message in greet_user(), ask the user if this is the correct
+#username. If it’s not, call get_new_username() to get the correct username.
+import json
+
+filename = "remember.json"
+
+def get_new_username():
+    who = input("What is your name? ")
+    with open(filename, 'w') as f:
+        json.dump(who, f)
+        print(f"Hello {who.title()}.")
+
+try:
+    with open(filename) as f:
+        person = json.load(f)
+except FileNotFoundError:
+    get_new_username()    
+else:
+    test_name = input(f"Are you person {person.title()}? ")
+    if test_name == 'yes':
+        print(f"Welcome back {person.title()}")
+    elif test_name == 'no':
+        get_new_username()
