@@ -196,3 +196,131 @@ while True:
         print("Please enter a number ")
     else:    
         print(value)
+
+#Cats and Dogs: Make two files, cats.txt and dogs.txt. Store at least three names of cats in
+#the first file and three names of dogs in the second file. Write a program that tries to read these
+#files and print the contents of the file to the screen. Wrap your code in a try-except block to
+#catch the FileNotFound error, and print a friendly message if a file is missing. Move one of the
+#files to a different location on your system, and make sure the code in the except block
+#executes properly.
+catfile = "catfile.txt"
+dogfile = "dogfile.txt"
+
+with open(catfile, 'w') as file_object:
+    cat_content = file_object.write("Pork Chop\nTiger\nLa'FaShe")
+
+with open(dogfile, 'w') as f:
+    dog_content = f.write("Barney\nJack\nDuke")
+
+try:
+    with open(catfile) as file_object:
+        cat_read = file_object.read()
+except FileNotFoundError:
+    print(f"Can't find {catfile} in the working directory.")
+else:
+    print(cat_read)
+
+print()
+
+try:
+    with open(dogfile) as file_object:
+        dog_read = file_object.read()
+except FileNotFoundError:
+    print(f"Can't find {dogfile} in the working directory.")
+else:
+    print(dog_read)
+
+#Silent Cats and Dogs: Modify your except block in Exercise 10-8 to fail silently if
+#either file is missing.
+catfile = "catfile.txt"
+dogfile = "dogfile.txt"
+
+with open(catfile, 'w') as file_object:
+    cat_content = file_object.write("Pork Chop\nTiger\nLa'FaShe")
+
+with open(dogfile, 'w') as f:
+    dog_content = f.write("Barney\nJack\nDuke")
+
+try:
+    with open(catfile) as file_object:
+        cat_read = file_object.read()
+except FileNotFoundError:
+    pass
+else:
+    print(cat_read)
+
+print()
+
+try:
+    with open(dogfile) as file_object:
+        dog_read = file_object.read()
+except FileNotFoundError:
+    pass
+else:
+    print(dog_read)
+
+#Common Words: Visit Project Gutenberg (https://gutenberg.org/) and find a few texts
+#you’d like to analyze. Download the text files for these works, or copy the raw text from your
+#browser into a text file on your computer.
+#You can use the count() method to find out how many times a word or phrase appears in a
+#string. For example, the following code counts the number of times 'row' appears in a string:
+#>>> line = "Row, row, row your boat"
+#>>> line.count('row')
+#2
+#>>> line.lower().count('row')
+#Notice that converting the string to lowercase using lower() catches all appearances of the
+#word you’re looking for, regardless of how it’s formatted.
+#Write a program that reads the files you found at Project Gutenberg and determines how
+#many times the word 'the' appears in each text. This will be an approximation because it will
+#also count words such as 'then' and 'there'.
+
+book_name = "dracula.txt"
+
+with open(book_name, encoding='utf-8') as file_object:
+    content = file_object.read()
+
+words = content.split()
+num_words = words.count("the")
+print(num_words)
+num_words = words.count("and")
+print(num_words)
+num_words = words.count("bat")
+print(num_words)
+num_words = words.count("girl")
+print(num_words)
+num_words = words.count("castle")
+print(num_words)
+
+#Common Words: Visit Project Gutenberg (https://gutenberg.org/) and find a few texts
+#you’d like to analyze. Download the text files for these works, or copy the raw text from your
+#browser into a text file on your computer.
+#You can use the count() method to find out how many times a word or phrase appears in a
+#string. For example, the following code counts the number of times 'row' appears in a string:
+#>>> line = "Row, row, row your boat"
+#>>> line.count('row')
+#2
+#>>> line.lower().count('row')
+#Notice that converting the string to lowercase using lower() catches all appearances of the
+#word you’re looking for, regardless of how it’s formatted.
+#Write a program that reads the files you found at Project Gutenberg and determines how
+#many times the word 'the' appears in each text. This will be an approximation because it will
+#also count words such as 'then' and 'there'.
+
+book_name = "dracula.txt"
+
+with open(book_name, encoding='utf-8') as file_object:
+    content = file_object.read()
+
+words = content.split()
+num_words = words.count("the")
+print(num_words)
+num_words = words.count("and")
+print(num_words)
+num_words = words.count("bat")
+print(num_words)
+num_words = words.count("girl")
+print(num_words)
+num_words = words.count("castle")
+print(num_words)
+
+#continue on page 276
