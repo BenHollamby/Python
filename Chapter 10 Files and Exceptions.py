@@ -105,5 +105,75 @@ while True:
     else:
         print(answer)
 
-#continue on page 270
-           
+#handline the FileNotFoundError Exception
+#Lets start with an error 
+#filename = "alice.txt"
+#with open(filename, encoding='utf-8') as f:
+#    contents = f.read()
+
+#now we add some error handling
+filename = "alice.txt"
+try:
+    with open(filename, encoding='utf-8') as f:
+        contents = f.read()
+except FileNotFoundError:
+    print(f"Sorry the {filename} does not exist")
+
+
+#here we are going to take the book Dracula and use split() which will create a list of all the words 
+#whereever it finds a space.
+
+filename = "dracula.txt"
+
+try:
+    with open(filename, encoding='utf-8') as f:
+        contents = f.read()
+except FileNotFoundError:
+    print(f"Sorry {filename} can not be found in working directory.")
+else:
+    #Count the approximate number of words in the file
+    words = contents.split()
+    num_words = len(words)
+    print(f"The file {filename} has about {num_words} words.")
+
+
+#lets turn this counting words in a book into a function and download some more books.
+
+def count_words(filename):
+    try:
+        with open(filename, encoding='utf-8') as f:
+            contents = f.read()
+    except FileNotFoundError:
+        print(f"Sorry can not find {filename} in the working directory")
+    else:
+        words = contents.split()
+        num_words = len(words)
+        print(f"The book {filename} has about {num_words} words in it!")
+
+filename = "frankenstein.txt"
+count_words(filename)
+count_words("dracula.txt")
+print()
+
+#Lets try multiple books in a list
+filename = ["dracula.txt", "frankenstein.txt", "intentionallymissing.txt", "dunwichhorror.txt"]
+for file in filename:
+    count_words(file)
+
+#sometimes you just want to fail in silence, in which case just place a pass in except
+def count_words_in_book(filename):
+    try:
+        with open(filename, encoding='utf-8') as f:
+            contents = f.read()
+    except FileNotFoundError:
+        pass
+    else:
+        words = contents.split()
+        num_words = len(words)
+        print(f"The book {filename} has about {num_words} words in it!")
+
+filename = ["dracula.txt", "frankenstein.txt", "intentionallymissing.txt", "dunwichhorror.txt"]
+
+for file in filename:
+    count_words_in_book(file)
+
