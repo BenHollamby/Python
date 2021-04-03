@@ -22,4 +22,3 @@ class TestAnonymousSurvey(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-#continue on page 297
