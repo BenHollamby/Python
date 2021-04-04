@@ -1,4 +1,5 @@
 #second attempt computer vs computer rock paper scissors
+#100 million games takes about a minute. Good fun!
 import random
 
 print()
@@ -64,7 +65,7 @@ if computer1_wins == computer2_wins:
 elif computer1_wins > computer2_wins:
     comp1_by = (computer1_wins - computer2_wins)
     print(f"Computer 1 is the overall winner with {computer1_wins} to {computer2_wins} winning by {comp1_by} match points!")
-    
+
 else:
     comp2_by = (computer2_wins - computer1_wins)
     print(f"Computer 2 is the winner with {computer2_wins} to {computer1_wins} winning by {comp2_by} match points!")
