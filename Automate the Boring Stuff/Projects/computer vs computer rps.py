@@ -3,7 +3,7 @@
 import random
 
 print()
-print("Welcome to computer vs computer of Rock, Paper, Scissors mother fucker!")
+print("Welcome to computer vs computer of Rock, Paper, Scissors!")
 print("Battle commencing.....")
 
 rock_paper_scissor = ['r', 'p', 's']
